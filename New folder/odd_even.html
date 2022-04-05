@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>document</title>
+    </head>
+    <body>
+        <input type="text" id="number" placeholder="enter number"/>
+        <button onclick="checkoddeven()">submit</button>
+    <script>
+        
+        function checkoddeven(){
+            var number = document.getElementById('number').value;
+            let reg = /[^0-9]/;
+            if(number.trim() == ''){
+                alert('Input should be given!!');
+                return false;
+            }
+            if(reg.test(number)){
+                alert('enter number!!');
+                return false;
+            }
+            if(number % 2 == 0 ){
+                alert('even');
+                return false;
+            }
+            else{
+                alert('Odd');
+                return false;
+            }
+        }
+    </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <div class="container-fluid">
+        <input type="text" name="number1" id="number1"> <br>
+        
+        <input type="text" name="number2" id="number2"><br>
+        <button type="button" onclick="submit1()">submit</button><br>
+
+        <p id="result"></p>
+    </div>
+    
+    <script>
+        function submit1(){
+            var a =  document.getElementById("number1").value;
+            var b =  document.getElementById("number2").value;
+            var c = parseInt(a) + parseInt(b); 
+
+            document.getElementById("result").innerHTML="Sum of number is:" + c;
+        }
+    </script>
+
+</body>
+</html>

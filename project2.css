@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    background-color: #11ff11;
+    height: 70px;
+}
+
+.content {
+    background-color: whitesmoke;
+    padding: 20px;
+    height: 70vh;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: green;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    z-index: 3;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.bill{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 12px;
+}
