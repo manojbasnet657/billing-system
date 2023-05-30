@@ -1,16 +1,10 @@
-<?php
-
-session_start();
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<link href="https://fonts.googleapis.com/css?family=Aleo" rel="stylesheet">
 
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-	<title>Hamro Learning</title>
+	<title>Unique Developer</title>
 	<!----Linking google fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
@@ -21,7 +15,7 @@ session_start();
 
 		<!----css file link-->
 	
-	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" type="text/css" href="css/signupstyle.css">
 
 	   <!----favicon setting-->
 	<link rel="shortcut icon" type="text/css" href="img/mylogo.png">
@@ -35,28 +29,8 @@ session_start();
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<!-- Google Client id to integrate google signin-->
-
-	<meta name="google-signin-client_id" content="808976312783-k901nr0n50did222qa275k0umvn4rpi1.apps.googleusercontent.com">
-	
-
-	<!-- Google JavaScript file to integrate google signin-->
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-
-	<!-- Google custom JavaScript file to integrate google signin-->
-	<script type="text/javascript" src="js/google_signin.js"></script>
-
-
 	<!----------email notification-------->
 
-<script type="text/css">
-	
-
-
-
-
-
-</script>
 
 </head>
 <body>
@@ -74,7 +48,7 @@ session_start();
 
 				</button>
 
-				<h1 style="color: white;margin-top: 10px;" id="myhead">Hamro Learning</h1>
+				<h1 style="color: white;margin-top: 10px;" id="myhead">Unique Developer</h1>
 			</div>
 			<div class="collapse navbar-collapse" id="navi">
                  <!------Navigation menus starts---->
@@ -94,52 +68,43 @@ session_start();
 			<!---Navigation Ends	----->
 
 			<!---Slider Section starts	------->
-			<section class="slider text-left" id="slider">
+			<section class="slider text-center" id="slider">
 				<div class="modal-dialog ">
 					<div class="modal-content">
-						<h3 id="login-heading">Login</h3>
+						<h3 id="login-heading">SIGN UP</h3>
 						
 					<div class="modal-body" >
 						<div class="left-box">
-						<form method="POST" action="validation.php" onsubmit="return validation()">
+						<form method="POST" action="registration.php"> 
 							<div class="form-group">
-								<label><i class="fa fa-user fa-2x"></i>Username :</label>
-								<input type="text" autocomplete="off" name="name" class="form-control" id="username" onkeypress="clear()">
-							
+								<label><i class="fa fa-user fa-2x"></i>&nbspUsername :</label>
+								<input type="text" name="name" class="form-control">
 
-								<label><i class="fa fa-lock fa-2x"></i>Password :</label>
-								<input type="password" autocomplete="off" name="password" class="form-control" id="password">
+								<label><i class="fa fa-lock fa-2x"></i>&nbspPassword :</label>
+								<input type="text" name="password" class="form-control" id="pwd">
 
-								<span id="perror"><?php 
-								if(isset($_SESSION['error']))
-								{
-									echo "wrong username or password";
-								} 
-								else{ echo " ";} 
-								?>
-									
+								<label><i class="fa fa-user fa-2x"></i>&nbspConfirm Password :</label>
+								<input type="text" name="confirm_password" class="form-control" id="cpwd">
 
-								</span>
-								<button id="btn-login" type="submit">Login</button>
-								
+								<label><i class="fa fa-lock fa-2x"></i>&nbspEmail id :</label>
+								<input type="text" name="email" class="form-control">
+								<div id="errorlabel"></div>
+								<button id="btn-login" type="submit">log in</button>
 							</div>
-							<div class="register">
-								<h2>Don't have an account?&nbsp<span id="create-account"><a href="signup.html">Create</span></a> </h2>
-							</div>
-							
 						</form>
 					</div>
-					<!-- <div class="right-box">
+					<div class="right-box">
 						<span class="signinwith">Sign in With <br> Social Networks</span>
 
 						<button class="social facebook">Log in with Facebook</button>
 						<button class="social twitter">Log in with twitter</button>
-						<button type="submit" class="social google g-signin2" data-onsuccess="onSignIn()">Log in with gmail</button>
+						<button class="social google">Log in with gmail</button>
 					</div>
-						 -->
+						
 					</div>
 					
 						
+						<button id="btn-signup"><a id="sign" href="index.php">Sign up</a></button>
 				</div>
 			</div>
 			</section>
@@ -151,21 +116,25 @@ session_start();
 
 <script type="text/javascript">
 	
-function validation() {
-	var username=document.getElementById('username').value;
-	var password=document.getElementById('password').value;
+$(document).ready(function(){
 
-	if ((username=="") ||( password==""))
-	 {
-	 	document.getElementById('perror').innerHTML="please fill the details";
-	 	return false;
-	 }
-}
+$('#cpwd').keyup(function(){
+	var pwd=$('#pwd').val();
+	var cpwd=$('#cpwd').val();
+	if (cpwd!=pwd) 
+	{
+		$('#errorlabel').html('**password are not matched');
+		$('#errorlabel').css('color','red');
+		return false;
+	}
+	else
+	{
+		$('#errorlabel').html('');
+		return true;
+	}
+});
 
-
-function clear() {
-	document.getElementById('perror').innerHTML="ksdfisdhfg";
-}
+});
 
 </script>
          <!---confirm password validation end------->
